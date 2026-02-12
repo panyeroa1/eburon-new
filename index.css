@@ -1,0 +1,53 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-dot-grid {
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #3f3f46 1px, transparent 1px);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+@keyframes wave {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+}
+
+.voice-wave div {
+  width: 2px;
+  background-color: #ef4444;
+  border-radius: 1px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.voice-wave div:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave div:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave div:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave div:nth-child(5) { animation-delay: 0.4s; }
